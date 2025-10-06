@@ -6,14 +6,19 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:41:39 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/06 18:09:14 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/06 20:12:50 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <fcntl.h>
 
 
 int	main(int argc, char **argv)
 {
-
+	if (argc != 2)
+		return (0);
+	int fd;
+	fd = open(argv[1], O_RDONLY);
 
 
 	return (0);
