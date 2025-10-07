@@ -1,0 +1,9 @@
+[submodule "LIBFT"]
+	path = LIBFT
+	url = git@github.com:pipapo-888/LIBFT.git
+[submodule "GET_NEXT_LINE"]
+	path = GET_NEXT_LINE
+	url = git@github.com:pipapo-888/GET_NEXT_LINE.git
+[submodule "PRINTF"]
+	path = PRINTF
+	url = git@github.com:pipapo-888/PRINTF.git
