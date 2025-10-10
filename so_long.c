@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:41:39 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/10 01:15:15 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/10 21:52:09 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void read_map(char *map_name, char map[20][20])
 	while ((line = get_next_line(fd)))
 	{
 		j = 0;
-		// printf("%s", line);
 		while (j < strlen(line))
 		{
 			map[i][j] = line[j];
@@ -35,6 +34,7 @@ void read_map(char *map_name, char map[20][20])
 		}
 		i++;
 	}
+	close(fd);
 }
 
 
