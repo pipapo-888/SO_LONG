@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:07:46 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/11 16:14:41 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/11 16:32:33 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <stdio.h>
 #include <string.h>
 
+# include "LIBFT/libft.h"
 # include "GET_NEXT_LINE/get_next_line.h"
 # include "minilibx-linux/mlx.h"
 # include "minilibx-linux/mlx_int.h"
