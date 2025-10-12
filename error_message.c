@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error_message.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/11 16:08:10 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/12 19:49:40 by knomura          ###   ########.fr       */
+/*   Created: 2025/10/12 14:17:09 by knomura           #+#    #+#             */
+/*   Updated: 2025/10/12 18:25:31 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void put_error()
 {
-	t_info info;
-	if (argc != 2)
-		return (0);
-	info.map_info = map_init(argv[1]);
-	mlx_render(&info);
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
+}
 
-	return (0);
+void put_error_free_close(int fd, char *line, char *message)
+{
+	ft_putstr_fd("Error\n", 2);
+	if (line)
+		free(line);
+	if (fd >= 0)
+		close(fd);
+	if (message)
+		ft_putstr_fd(message, 2);
+	exit(1);
 }
