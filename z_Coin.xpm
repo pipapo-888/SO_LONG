@@ -2,7 +2,7 @@
 static char *z_c[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 2 1 ",
-"  c Green",
+"  c light blue",
 ". c Yellow",
 /* pixels */
 "                                                                ",

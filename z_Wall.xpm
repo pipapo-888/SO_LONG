@@ -2,8 +2,8 @@
 static char *z_Wall[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 2 1 ",
-"  c None",
-". c black",
+"  c light blue",
+". c Brown",
 /* pixels */
 "....                                                        ....",
 "....                                                        ....",

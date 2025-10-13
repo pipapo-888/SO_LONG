@@ -2,7 +2,7 @@
 static char *z_Player[] = {
 /* columns rows colors chars-per-pixel */
 "64 64 2 1 ",
-"  c None",
+"  c light blue",
 ". c black",
 /* pixels */
 "                                                                ",
