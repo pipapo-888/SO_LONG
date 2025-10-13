@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:07:46 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/12 19:49:06 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/13 11:58:34 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef struct s_images{
 
 typedef struct s_info{
 	void		*mlx;
-	void		*window;
+	void		*win;
 	t_map		map_info;
 	t_player	player_info;
 	t_images	images_info;

@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 19:33:51 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/12 19:51:37 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/13 12:03:12 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void mlx_render(t_info *info)
     int img_height;
 
 
-	mlx = mlx_init();
-	win = mlx_new_window(mlx, 800, 800, "so_long");
+	info->mlx = mlx_init();
+	info->win = mlx_new_window(info->mlx, 800, 800, "so_long");
 
-	penguin_pic = mlx_xpm_file_to_image(mlx, "./penguin.xpm", &img_width, &img_height);
-	mlx_put_image_to_window(mlx, win, penguin_pic, 0, 0);
+	penguin_pic = mlx_xpm_file_to_image(info->mlx, "./penguin.xpm", &img_width, &img_height);
+	mlx_put_image_to_window(info->mlx, info->win, penguin_pic, 0, 0);
 
-	mlx_loop(mlx);
+	mlx_loop(info->mlx);
 }
 
 // cc main.c minilibx-linux/libmlx.a -lXext -lX11
