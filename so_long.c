@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:41:39 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/12 20:20:09 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/13 18:36:04 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,18 @@ void free_map(t_map *map)
 	free(map->map);
 }
 
-int allowed(char c, t_map *map)
+int allowed(char c, t_map *map, int i, int j)
 {
 	if (c == '0' || c == '1')
 		;
 	else if (c == 'P')
 		map->player_count++;
 	else if (c == 'E')
+	{
 		map->exit_count++;
+		map->exit_x = i;
+		map->exit_y = j;
+	}
 	else if (c == 'C')
 		map->coin_count++;
 	else
@@ -62,7 +66,7 @@ void check_iregular(t_map *map)
 		j = 0;
 		while (j < map->width)
 		{
-			if (!allowed(map->map[i][j], map))
+			if (!allowed(map->map[i][j], map, i, j))
 			{
 				// free_map(map);  // コメントアウトするとstill reachableが253 バイト　しなくても1byte存在する
 				put_error_free_close(0, NULL, "Unallowed Variable Included\n");
