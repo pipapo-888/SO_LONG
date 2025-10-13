@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 19:33:51 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/13 20:27:53 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/13 20:43:44 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,38 +27,38 @@ int close_window(void *param)
 
 void move_up(t_info *info)
 {
-	// int new_y = info->player_info.y - 1;
-	// if (info->map_info.map[new_y][info->player_info.x] == '1')
-	// 	return ;
-	// if (info->map_info.map[new_y][info->player_info.x] == 'E'
-	// 	&& info->player_info.coin_count == info->map_info.coin_count)
-	// 	exit(0); //　ここもしっかりと終了するように変える    MoveCount も表示する必要があるかも
-	// if (info->map_info.map[new_y][info->player_info.x] == 'C')
-	// {
-	// 	info->player_info.coin_count++;
-	// 	if (info->player_info.coin_count == info->map_info.coin_count)
-	// 		mlx_put_image_to_window(info->mlx, info->win, info->images_info.exit, info->map_info.exit_x * 64, info->map_info.exit_y * 64);
-	// }
-	// mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile, info->player_info.x * 64, info->player_info.y * 64);
-	// mlx_put_image_to_window(info->mlx, info->win, info->images_info.player, info->player_info.x * 64, new_y * 64);
-	// info->player_info.move_count++;
-	// info->player_info.y--;
-	// printf("Move Count:%ld\n", info->player_info.move_count);
+	int new_y = info->player_info.y - 1;
+	if (info->map_info.map[new_y][info->player_info.x] == '1')
+		return ;
+	if (info->map_info.map[new_y][info->player_info.x] == 'E'
+		&& info->player_info.coin_count == info->map_info.coin_count)
+		exit(0); //　ここもしっかりと終了するように変える    MoveCount も表示する必要があるかも
+	if (info->map_info.map[new_y][info->player_info.x] == 'C')
+	{
+		info->player_info.coin_count++;
+		if (info->player_info.coin_count == info->map_info.coin_count)
+			mlx_put_image_to_window(info->mlx, info->win, info->images_info.exit, info->map_info.exit_x * 64, info->map_info.exit_y * 64);
+	}
+	mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile, info->player_info.x * 64, info->player_info.y * 64);
+	mlx_put_image_to_window(info->mlx, info->win, info->images_info.player, info->player_info.x * 64, new_y * 64);
+	info->player_info.move_count++;
+	info->player_info.y--;
+	printf("Move Count:%ld\n", info->player_info.move_count);
 
-	printf("yes\n");
-	printf("%p\n", info->images_info.player);
-	if (!info->images_info.player)
-	{
-   		printf("player image is NULL!\n");
-    	return;
-	}
-	if (!info->mlx || !info->win)
-	{
-    	printf("mlx or win is NULL!\n");
-    	return;
-	}
-	// put_to_window(info);
-	// mlx_put_image_to_window(info->mlx, info->win, info->images_info.player, 0, 0);
+	// printf("yes\n");
+	// printf("%p\n", info->images_info.player);
+	// if (!info->images_info.player)
+	// {
+   	// 	printf("player image is NULL!\n");
+    // 	return;
+	// }
+	// if (!info->mlx || !info->win)
+	// {
+    // 	printf("mlx or win is NULL!\n");
+    // 	return;
+	// }
+	// // put_to_window(info);
+	// // mlx_put_image_to_window(info->mlx, info->win, info->images_info.player, 0, 0);
 }
 
 void move_down(t_info *info)
@@ -200,12 +200,8 @@ void window_render(t_info *info)
 
 	put_to_window(info);
 
-	mlx_put_image_to_window(info->mlx, info->win, info->images_info.player, 0, 0);
-	printf("２回め:%p\n", info->images_info.player);
 
-
-
-	mlx_key_hook(info->win, handle_key, &info);
+	mlx_key_hook(info->win, handle_key, info);
 	mlx_hook(info->win, 17, 0, close_window, NULL);
 
 	mlx_loop(info->mlx);
