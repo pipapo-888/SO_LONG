@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:07:46 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/13 11:58:34 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/13 12:19:51 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_info{
 
 t_map	map_init(char *map_name);
 
-void	mlx_render(t_info *info);
+void	window_render(t_info *info);
 
 void 	put_error();
 void	put_error_free_close(int fd, char *line, char *message);
