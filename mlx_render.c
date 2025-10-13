@@ -6,24 +6,42 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 19:33:51 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/13 12:31:55 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/13 14:49:30 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void window_render(t_info *info)
+int close_window(void *param)
 {
-	void *penguin_pic;
+    (void)param;
+    exit(0);
+    return (0);
+}
+
+void init_image(t_info *info)
+{
 	int img_width;
     int img_height;
 
+	info->images_info.item = mlx_xpm_file_to_image(info->mlx, "./resized_penguin.xpm", &img_width, &img_height);
+	info->images_info.player = mlx_xpm_file_to_image(info->mlx, "./Dolphin.xpm", &img_width, &img_height);
+	info->images_info.exit = mlx_xpm_file_to_image(info->mlx, "./z_c.xpm", &img_width, &img_height);
+
+}
+
+void window_render(t_info *info)
+{
 	info->mlx = mlx_init();
-	info->win = mlx_new_window(info->mlx, info->map_info.width * 100, info->map_info.height * 100, "so_long");
+	info->win = mlx_new_window(info->mlx, info->map_info.width * 64, info->map_info.height * 64, "so_long");
+	init_image(info);
 
-	penguin_pic = mlx_xpm_file_to_image(info->mlx, "./resized_penguin.xpm", &img_width, &img_height);
-	mlx_put_image_to_window(info->mlx, info->win, penguin_pic, 0, 0);
+	mlx_put_image_to_window(info->mlx, info->win, info->images_info.player, 0, 64);
+	mlx_put_image_to_window(info->mlx, info->win, info->images_info.item, 0, 0);
+	mlx_put_image_to_window(info->mlx, info->win, info->images_info.exit, 64, 0);
 
+
+	mlx_hook(info->win, 17, 0, close_window, NULL);
 	mlx_loop(info->mlx);
 }
 
