@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 19:33:51 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/13 14:49:30 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/13 15:02:03 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void window_render(t_info *info)
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.player, 0, 64);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.item, 0, 0);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.exit, 64, 0);
+
+
 
 
 	mlx_hook(info->win, 17, 0, close_window, NULL);
