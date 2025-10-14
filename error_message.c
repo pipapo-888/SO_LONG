@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 14:17:09 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/12 18:25:31 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/14 18:21:00 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void put_error()
 	exit(1);
 }
 
-void put_error_free_close(int fd, char *line, char *message)
+void put_error_free_close(int close_fd, char *line, char *message)
 {
 	ft_putstr_fd("Error\n", 2);
 	if (line)
 		free(line);
-	if (fd >= 0)
-		close(fd);
+	if (close_fd >= 0)
+		close(close_fd);
 	if (message)
 		ft_putstr_fd(message, 2);
 	exit(1);

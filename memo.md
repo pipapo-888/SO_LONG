@@ -8,5 +8,12 @@ read_mapでマップ読み込み -> mapをValidate -> mlx_init -> new_windows ->
 Error表示条件
 [x]最低１コイン、１プレイヤー、１Exit
 [x]四角形
-[ ]壁に囲まれている
+[x]壁に囲まれている
 [ ]ゴールへの道筋があるか
+マップサイズ上限
+
+ファイルソートする
+norm
+flood fill
+freeする
+makfile
