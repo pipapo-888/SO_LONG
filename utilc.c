@@ -6,7 +6,21 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:07:37 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/11 16:07:38 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/14 23:35:54 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "so_long.h"
+
+void	free_map(t_map *map)
+{
+	int	i;
+
+	i = 0;
+	while (i < map->height)
+	{
+		free(map->map[i]);
+		i++;
+	}
+	free(map->map);
+}

@@ -6,34 +6,33 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:58:41 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/14 18:21:54 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/14 23:58:15 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "so_long.h"
 
-void flood_fill(char **map, int y, int x)
+void flood_fill(char** map, int y, int x)
 {
-    if (map[y][x] == '1' || map[y][x] == 'Z')
-        return;
+	if (map[y][x] == '1' || map[y][x] == 'Z')
+		return;
 
-    map[y][x] = 'Z';
-	printf("%d %d\n", x, y);
+	map[y][x] = 'Z';
 
-    flood_fill(map, y + 1, x);
-    flood_fill(map, y - 1, x);
-    flood_fill(map, y, x + 1);
-    flood_fill(map, y, x - 1);
+	flood_fill(map, y + 1, x);
+	flood_fill(map, y - 1, x);
+	flood_fill(map, y, x + 1);
+	flood_fill(map, y, x - 1);
 }
 
-void	check_route(t_map *map)
+void	check_route(t_map* map)
 {
-	char **map_copy;
+	char** map_copy;
 	int i;
 	int j;
 
-	map_copy = malloc(sizeof(char *) * (map->height + 1));
+	map_copy = malloc(sizeof(char*) * (map->height + 1));
 	i = 0;
 
 	while (i < map->height)
@@ -49,17 +48,25 @@ void	check_route(t_map *map)
 		while (j < map->width)
 		{
 			if (map->map[i][j] == 'P')
-					flood_fill(map_copy, i, j);
+				flood_fill(map_copy, i, j);
 			j++;
 		}
 		i++;
 	}
 	i = 0;
 
-	while(i < map->height)
+	printf("\n");
+	while (map_copy[i])
+	{
+		printf("%s\n", map_copy[i]);
+		i++;
+	}
+	
+	i = 0;
+	while (i < map->height)
 	{
 		j = 0;
-		while (i < map->width)
+		while (j < map->width)
 		{
 			if (map_copy[i][j] == 'C' || map_copy[i][j] == 'E')
 				put_error_free_close(0, NULL, "NO PATH");
@@ -68,21 +75,14 @@ void	check_route(t_map *map)
 		i++;
 	}
 
-	i = 0;
-	printf("\n");
-	while (map_copy[i])
-	{
-		printf("%s\n", map_copy[i]);
-		i++;
-	}
 }
 
-void	check_wall(t_map *map)
+void	check_wall(t_map* map)
 {
 	int i;
 
 	i = 0;
-	while(i < map->width)
+	while (i < map->width)
 	{
 		if (map->map[0][i] != '1' || map->map[map->height - 1][i] != '1')
 			put_error_free_close(0, NULL, "NO WALL\n");
@@ -98,7 +98,7 @@ void	check_wall(t_map *map)
 }
 
 
-int	allowed(char c, t_map *map, int i, int j)
+int	allowed(char c, t_map* map, int i, int j)
 {
 	if (c == '0' || c == '1')
 		;
@@ -117,7 +117,7 @@ int	allowed(char c, t_map *map, int i, int j)
 	return (1);
 }
 
-void	check_iregular(t_map *map)
+void	check_iregular(t_map* map)
 {
 	int	i;
 	int	j;
@@ -144,7 +144,7 @@ void	check_iregular(t_map *map)
 			"1 exit,1 starting position and at least 1 collectible.\n");
 }
 
-void	validate_map(t_map *map)
+void	validate_map(t_map* map)
 {
 	int	i;
 
@@ -154,7 +154,7 @@ void	validate_map(t_map *map)
 		printf("%s\n", map->map[i]);
 		i++;
 	}
-	if (map->height > 30 || map->width > 55)
+	if (map->height > 30 || map->width > 50)
 		put_error_free_close(0, NULL,
 			"Map Too BIG\n");
 	check_iregular(map);
