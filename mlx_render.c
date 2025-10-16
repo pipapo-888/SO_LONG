@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 19:33:51 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/14 17:20:09 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/16 15:41:00 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,3 @@ void window_render(t_info *info)
 	mlx_loop(info->mlx);
 }
 
-// cc main.c minilibx-linux/libmlx.a -lXext -lX11
-
-// cc mlx_render.c handle_key.c validate_map.c main.c so_long.c error_message.c GET_NEXT_LINE/gnllib.a LIBFT/libft.a minilibx-linux/libmlx.a -lXext -lX11
-
-// read_mapでマップ読み込み -> mapをValidate -> mlx_init -> new_windows -> 使う ->

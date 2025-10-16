@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:41:39 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/14 23:35:58 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/16 16:38:03 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int	map_len(char *map_name, t_map *map)
 		line = get_next_line(fd);
 	}
 	close(fd);
-	printf("%zu %zu\n", map->width, map->height);
 }
 
 t_map	map_init(char *map_name)

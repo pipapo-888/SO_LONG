@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:58:41 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/14 23:58:15 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/16 17:54:53 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	check_route(t_map* map)
 		printf("%s\n", map_copy[i]);
 		i++;
 	}
-	
+
 	i = 0;
 	while (i < map->height)
 	{
@@ -74,6 +74,13 @@ void	check_route(t_map* map)
 		}
 		i++;
 	}
+
+	for (i = 0; i < map->height; i++)
+	{
+		free(map_copy[i]);
+	}
+
+	free(map_copy);
 
 }
 
@@ -131,8 +138,7 @@ void	check_iregular(t_map* map)
 		{
 			if (!allowed(map->map[i][j], map, i, j))
 			{
-				// free_map(map);
-				// コメントアウトするとstill reachableが253 バイト　しなくても1byte存在する
+				free_map(map);
 				put_error_free_close(0, NULL, "Unallowed Variable Included\n");
 			}
 			j++;
@@ -140,8 +146,11 @@ void	check_iregular(t_map* map)
 		i++;
 	}
 	if (map->coin_count < 1 || map->player_count != 1 || map->exit_count != 1)
+	{
+		free_map(map);
 		put_error_free_close(0, NULL,
 			"1 exit,1 starting position and at least 1 collectible.\n");
+	}
 }
 
 void	validate_map(t_map* map)

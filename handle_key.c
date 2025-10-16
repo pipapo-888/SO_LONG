@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 12:59:15 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/14 15:55:01 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/16 17:49:21 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	move_up(t_info *info)
 		return ;
 	if (info->map_info.map[new_y][info->player_info.x] == 'E'
 		&& info->player_info.coin_count == info->map_info.coin_count)
-		exit(0); //　ここもしっかりと終了するように変える    MoveCount も表示する必要があるかも
+			free_all_exit(info);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile,
 		info->player_info.x * 64, info->player_info.y * 64);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.player,
@@ -55,7 +55,7 @@ void	move_down(t_info *info)
 		return ;
 	if (info->map_info.map[new_y][info->player_info.x] == 'E'
 		&& info->player_info.coin_count == info->map_info.coin_count)
-		exit(0); //　ここもしっかりと終了するように変える    MoveCount も表示する必要があるかも
+		free_all_exit(info);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile,
 		info->player_info.x * 64, info->player_info.y * 64);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.player,
@@ -83,7 +83,7 @@ void	move_left(t_info *info)
 		return ;
 	if (info->map_info.map[info->player_info.y][new_x] == 'E'
 		&& info->player_info.coin_count == info->map_info.coin_count)
-		exit(0); //　ここもしっかりと終了するように変える    MoveCount も表示する必要があるかも
+		free_all_exit(info);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile,
 		info->player_info.x * 64, info->player_info.y * 64);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.player,
@@ -111,7 +111,7 @@ void	move_right(t_info *info)
 		return ;
 	if (info->map_info.map[info->player_info.y][new_x] == 'E'
 		&& info->player_info.coin_count == info->map_info.coin_count)
-		exit(0); //　ここもしっかりと終了するように変える    MoveCount も表示する必要があるかも
+			free_all_exit(info);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile,
 		info->player_info.x * 64, info->player_info.y * 64);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.player,

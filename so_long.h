@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:07:46 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/14 17:13:22 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/16 17:49:06 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 typedef struct s_map
 {
-	char		**map;
+	char** map;
 	size_t		player_count;
 	size_t		coin_count;
 	size_t		exit_count;
@@ -43,32 +43,35 @@ typedef struct s_player
 
 typedef struct s_images
 {
-	void		*tile;
-	void		*wall;
-	void		*item;
-	void		*exit;
-	void		*player;
+	void* tile;
+	void* wall;
+	void* item;
+	void* exit;
+	void* player;
 	int			size;
 }				t_images;
 
 typedef struct s_info
 {
-	void		*mlx;
-	void		*win;
+	void* mlx;
+	void* win;
 	t_map		map_info;
 	t_player	player_info;
 	t_images	images_info;
 }				t_info;
 
-t_map			map_init(char *map_name);
+t_map			map_init(char* map_name);
 
-void			validate_map(t_map *map);
+void			validate_map(t_map* map);
 
-void			window_render(t_info *info);
+void			window_render(t_info* info);
 
-int				handle_key(int keycode, t_info *info);
+int				handle_key(int keycode, t_info* info);
+
+void	free_map(t_map* map);
+void free_all_exit(t_info* map);
 
 void			put_error(void);
-void			put_error_free_close(int fd, char *line, char *message);
+void			put_error_free_close(int fd, char* line, char* message);
 
 #endif
