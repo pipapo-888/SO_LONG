@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:07:37 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/16 17:56:15 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 02:17:54 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_map(t_map *map)
 	int	i;
 
 	i = 0;
-	while (i < map->height)
+	while ((size_t)i < map->height)
 	{
 		free(map->map[i]);
 		i++;
@@ -49,7 +49,7 @@ void free_all_exit(t_info *info)
 	mlx_destroy_window(info->mlx, info->win);
 
 	i = 0;
-	while (i < info->map_info.height)
+	while ((size_t)i < info->map_info.height)
 	{
 		free(info->map_info.map[i]);
 		i++;

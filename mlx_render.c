@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 19:33:51 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/16 15:41:00 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 02:08:41 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,21 @@ void put_to_window(t_info *info)
 	int j;
 
 	i = 0;
-	while (i < info->map_info.height)
+	while ((size_t)i < info->map_info.height)
 	{
 		j = 0;
-		while (j < info->map_info.width)
+		while ((size_t)j < info->map_info.width)
 		{
-		if (info->map_info.map[i][j] == '1')
-			mlx_put_image_to_window(info->mlx, info->win, info->images_info.wall, j * 64, i * 64);
-		else if (info->map_info.map[i][j] == '0')
-			mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile, j * 64, i * 64);
-		else if (info->map_info.map[i][j] == 'P')
-			put_player_to_window_and_info(info, i, j);
-		else if (info->map_info.map[i][j] == 'C')
-			mlx_put_image_to_window(info->mlx, info->win, info->images_info.item, j * 64, i * 64);
-		else if (info->map_info.map[i][j] == 'E')
-			mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile, j * 64, i * 64);
+			if (info->map_info.map[i][j] == '1')
+				mlx_put_image_to_window(info->mlx, info->win, info->images_info.wall, j * 64, i * 64);
+			else if (info->map_info.map[i][j] == '0')
+				mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile, j * 64, i * 64);
+			else if (info->map_info.map[i][j] == 'P')
+				put_player_to_window_and_info(info, i, j);
+			else if (info->map_info.map[i][j] == 'C')
+				mlx_put_image_to_window(info->mlx, info->win, info->images_info.item, j * 64, i * 64);
+			else if (info->map_info.map[i][j] == 'E')
+				mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile, j * 64, i * 64);
 			j++;
 		}
 		i++;

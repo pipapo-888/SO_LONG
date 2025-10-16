@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:58:41 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/16 17:54:53 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 02:14:44 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@ void	check_route(t_map* map)
 	map_copy = malloc(sizeof(char*) * (map->height + 1));
 	i = 0;
 
-	while (i < map->height)
+	while ((size_t)i < map->height)
 	{
 		map_copy[i] = strdup(map->map[i]);
 		i++;
 	}
 	map_copy[i] = NULL;
 	i = 0;
-	while (i < map->height)
+	while ((size_t)i < map->height)
 	{
 		j = 0;
-		while (j < map->width)
+		while ((size_t)j < map->width)
 		{
 			if (map->map[i][j] == 'P')
 				flood_fill(map_copy, i, j);
@@ -63,10 +63,10 @@ void	check_route(t_map* map)
 	}
 
 	i = 0;
-	while (i < map->height)
+	while ((size_t)i < map->height)
 	{
 		j = 0;
-		while (j < map->width)
+		while ((size_t)j < map->width)
 		{
 			if (map_copy[i][j] == 'C' || map_copy[i][j] == 'E')
 				put_error_free_close(0, NULL, "NO PATH");
@@ -75,7 +75,7 @@ void	check_route(t_map* map)
 		i++;
 	}
 
-	for (i = 0; i < map->height; i++)
+	for (i = 0; (size_t)i < map->height; i++)
 	{
 		free(map_copy[i]);
 	}
@@ -89,14 +89,14 @@ void	check_wall(t_map* map)
 	int i;
 
 	i = 0;
-	while (i < map->width)
+	while ((size_t)i < map->width)
 	{
 		if (map->map[0][i] != '1' || map->map[map->height - 1][i] != '1')
 			put_error_free_close(0, NULL, "NO WALL\n");
 		i++;
 	}
 	i = 0;
-	while (i < map->height)
+	while ((size_t)i < map->height)
 	{
 		if (map->map[i][0] != '1' || map->map[i][map->width - 1] != '1')
 			put_error_free_close(0, NULL, "NO WALL\n");
@@ -131,10 +131,10 @@ void	check_iregular(t_map* map)
 
 	i = 0;
 	j = 0;
-	while (i < map->height)
+	while ((size_t)i < map->height)
 	{
 		j = 0;
-		while (j < map->width)
+		while ((size_t)j < map->width)
 		{
 			if (!allowed(map->map[i][j], map, i, j))
 			{

@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:41:39 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/16 16:38:03 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 02:03:56 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	read_map(char *map_name, t_map *map)
 {
 	char	*line;
-	int		i;
-	int		j;
+	size_t		i;
+	size_t		j;
 	int		fd;
 
 	i = 0;
@@ -38,11 +38,11 @@ void	read_map(char *map_name, t_map *map)
 	close(fd);
 }
 
-int	map_len(char *map_name, t_map *map)
+void	map_len(char *map_name, t_map *map)
 {
 	int		fd;
 	char	*line;
-	int		len;
+	size_t		len;
 
 	map->width = 0;
 	map->height = 0;
@@ -69,7 +69,7 @@ int	map_len(char *map_name, t_map *map)
 t_map	map_init(char *map_name)
 {
 	t_map	map;
-	int		i;
+	size_t		i;
 
 	map.map = NULL;
 	map.player_count = 0;
