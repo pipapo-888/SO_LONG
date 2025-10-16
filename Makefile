@@ -6,7 +6,7 @@
 #    By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/11 16:07:52 by knomura           #+#    #+#              #
-#    Updated: 2025/10/16 18:22:54 by knomura          ###   ########.fr        #
+#    Updated: 2025/10/17 02:42:37 by knomura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ PRINTF = PRINTF/printf.a
 all = $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF)
-	$(CC) $(OBJ) $(LIBFT) $(PRINTF) ./GET_NEXT_LINE/gnllib.a -o $@
+	$(CC) $(OBJ) $(LIBFT) $(PRINTF) ./GET_NEXT_LINE/gnllib.a minilibx-linux/libmlx.a -lXext -lX11 -o $@
 
 $(LIBFT):
 	make -C LIBFT
