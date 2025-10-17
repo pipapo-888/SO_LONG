@@ -1,2 +1,4 @@
 /minilibx-linux
 a.out
+*.o
+so_long

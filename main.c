@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:08:10 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/16 16:51:14 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 13:41:31 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char **argv)
 	info.map_info = map_init(argv[1]);
 	window_render(&info);
 
+	(void)info;
 	return (0);
 }
 

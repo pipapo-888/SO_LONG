@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 12:59:15 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/16 17:49:21 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 13:05:58 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	move_up(t_info *info)
 		return ;
 	if (info->map_info.map[new_y][info->player_info.x] == 'E'
 		&& info->player_info.coin_count == info->map_info.coin_count)
-			free_all_exit(info);
+		free_all_exit(info);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile,
 		info->player_info.x * 64, info->player_info.y * 64);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.player,
@@ -111,7 +111,7 @@ void	move_right(t_info *info)
 		return ;
 	if (info->map_info.map[info->player_info.y][new_x] == 'E'
 		&& info->player_info.coin_count == info->map_info.coin_count)
-			free_all_exit(info);
+		free_all_exit(info);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.tile,
 		info->player_info.x * 64, info->player_info.y * 64);
 	mlx_put_image_to_window(info->mlx, info->win, info->images_info.player,
@@ -135,7 +135,12 @@ int	handle_key(int keycode, t_info *info)
 	printf("%d\n", keycode);
 	if (keycode == KEY_ESC)
 	{
-		// mlx_destroy_window(info->mlx, info->win);
+		mlx_destroy_image(info->mlx, info->images_info.tile);
+		mlx_destroy_image(info->mlx, info->images_info.wall);
+		mlx_destroy_image(info->mlx, info->images_info.item);
+		mlx_destroy_image(info->mlx, info->images_info.exit);
+		mlx_destroy_image(info->mlx, info->images_info.player);
+		mlx_destroy_window(info->mlx, info->win);
 		exit(0);
 	}
 	if (keycode == KEY_W)

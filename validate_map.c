@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 15:58:41 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/17 02:14:44 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 12:55:04 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,7 @@ void	check_route(t_map* map)
 	{
 		free(map_copy[i]);
 	}
-
 	free(map_copy);
-
 }
 
 void	check_wall(t_map* map)

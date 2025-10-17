@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:07:37 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/17 02:17:54 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 13:55:08 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,20 @@ void	free_map(t_map *map)
 	free(map->map);
 }
 
-void free_map_copy(char **map_copy, int height)
+void	free_map_copy(char **map_copy, int height)
 {
-    int i;
-	
-    for (i = 0; i < height; i++)
-    {
-        free(map_copy[i]);
-    }
+	int	i;
 
-    free(map_copy);
+	i = 0;
+	while (i < height)
+	{
+		free(map_copy[i]);
+		i++;
+	}
+	free(map_copy);
 }
 
-void free_all_exit(t_info *info)
+void	free_all_exit(t_info *info)
 {
 	int	i;
 
@@ -47,6 +48,9 @@ void free_all_exit(t_info *info)
 	mlx_destroy_image(info->mlx, info->images_info.exit);
 	mlx_destroy_image(info->mlx, info->images_info.player);
 	mlx_destroy_window(info->mlx, info->win);
+	mlx_destroy_display(info->mlx);
+	free(info->mlx);
+	get_next_line(-1);
 
 	i = 0;
 	while ((size_t)i < info->map_info.height)
