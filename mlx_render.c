@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 19:33:51 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/17 16:42:41 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 17:28:35 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	put_player_to_window_and_info(t_info *info, size_t i, size_t j)
 	info->player_info.y = i;
 	info->player_info.coin_count = 0;
 	info->player_info.move_count = 0;
-	printf("x座標は:%ld y座標は:%ld\n", info->player_info.x, info->player_info.y);
 }
 
 void	put_to_window(t_info *info, int i, int j)
