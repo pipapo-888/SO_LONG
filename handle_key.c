@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 12:59:15 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/17 13:05:58 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 16:43:19 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,17 +132,8 @@ void	move_right(t_info *info)
 
 int	handle_key(int keycode, t_info *info)
 {
-	printf("%d\n", keycode);
 	if (keycode == KEY_ESC)
-	{
-		mlx_destroy_image(info->mlx, info->images_info.tile);
-		mlx_destroy_image(info->mlx, info->images_info.wall);
-		mlx_destroy_image(info->mlx, info->images_info.item);
-		mlx_destroy_image(info->mlx, info->images_info.exit);
-		mlx_destroy_image(info->mlx, info->images_info.player);
-		mlx_destroy_window(info->mlx, info->win);
-		exit(0);
-	}
+		free_all_exit(info);
 	if (keycode == KEY_W)
 		move_up(info);
 	if (keycode == KEY_A)

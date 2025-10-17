@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:07:37 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/17 13:55:08 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 16:42:17 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void	free_all_exit(t_info *info)
 	mlx_destroy_display(info->mlx);
 	free(info->mlx);
 	get_next_line(-1);
-
 	i = 0;
 	while ((size_t)i < info->map_info.height)
 	{

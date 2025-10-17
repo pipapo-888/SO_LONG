@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 17:41:39 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/17 13:41:38 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 15:59:07 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	map_len(char *map_name, t_map *map)
 		if (map->width == 0)
 			map->width = len;
 		else if (map->width != len)
-			put_error_free_close(fd, line, "Not Rectangular\n");
+			put_error_free_close(fd, line, "Not Rectangular\n", map);
 		map->height++;
 		free(line);
 		line = get_next_line(fd);
@@ -91,7 +91,5 @@ t_map	map_init(char *map_name)
 	}
 	read_map(map_name, &map);
 	validate_map(&map);
-	// free_map(&map);
-	// get_next_line(-1);
 	return (map);
 }

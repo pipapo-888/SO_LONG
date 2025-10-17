@@ -6,7 +6,7 @@
 #    By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/11 16:07:52 by knomura           #+#    #+#              #
-#    Updated: 2025/10/17 13:34:13 by knomura          ###   ########.fr        #
+#    Updated: 2025/10/17 16:00:03 by knomura          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = so_long
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.c so_long.c mlx_render.c validate_map.c handle_key.c error_message.c utils.c
+SRC = main.c map_init.c mlx_render.c validate_map.c check_route.c handle_key.c error_message.c utils.c
 OBJ = $(SRC:.c=.o)
 
 LIBFT = LIBFT/libft.a

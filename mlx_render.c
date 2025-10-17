@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 19:33:51 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/17 15:13:32 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/17 16:42:41 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	close_window(void *param)
 {
-	int	i;
-	t_info *info;
+	int		i;
+	t_info	*info;
 
 	info = (t_info *)param;
 	mlx_destroy_image(info->mlx, info->images_info.tile);
@@ -95,8 +95,8 @@ void	init_image(t_info *info)
 
 void	window_render(t_info *info)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
