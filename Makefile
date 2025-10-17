@@ -19,11 +19,12 @@ OBJ = $(SRC:.c=.o)
 
 LIBFT = LIBFT/libft.a
 PRINTF = PRINTF/printf.a
+GNL = GET_NEXT_LINE/gnllib.a
 
 all = $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF)
-	$(CC) $(OBJ) $(LIBFT) $(PRINTF) ./GET_NEXT_LINE/gnllib.a minilibx-linux/libmlx.a -lXext -lX11 -o $@
+	$(CC) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) minilibx-linux/libmlx.a -lXext -lX11 -o $@
 
 $(LIBFT):
 	make -C LIBFT
@@ -31,15 +32,20 @@ $(LIBFT):
 $(PRINTF):
 	make -C PRINTF
 
+$(GNL):
+	make -C GET_NEXT_LINE
+
 clean:
 	rm -f $(OBJ)
 	make -C LIBFT clean
 	make -C PRINTF clean
+	make -C GET_NEXT_LINE clean
 
 fclean: clean
 	rm -f $(NAME)
 	make -C LIBFT fclean
 	make -C PRINTF fclean
+	make -C GET_NEXT_LINE fclean
 
 re: fclean all
 
