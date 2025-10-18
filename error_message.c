@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 14:17:09 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/17 17:24:14 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/18 19:11:39 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	put_error_free_close(int close_fd, char *line, char *message,
 	int	i;
 
 	i = 0;
-	if (map->map)
+	if (map && map->map)
 	{
 		while ((size_t)i < map->height && map->map[i])
 		{
@@ -37,7 +37,7 @@ void	put_error_free_close(int close_fd, char *line, char *message,
 	ft_putstr_fd("Error\n", 2);
 	if (line)
 		free(line);
-	if (close_fd >= 0)
+	if (close_fd > 0)
 		close(close_fd);
 	if (message)
 		ft_putstr_fd(message, 2);
