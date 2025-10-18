@@ -6,7 +6,7 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 12:59:15 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/17 16:43:19 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/18 17:57:54 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	move_up(t_info *info)
 	}
 	info->player_info.move_count++;
 	info->player_info.y--;
-	printf("Move Count:%ld\n", info->player_info.move_count);
+	ft_printf("Move Count:%d\n", info->player_info.move_count);
 }
 
 void	move_down(t_info *info)
@@ -71,7 +71,7 @@ void	move_down(t_info *info)
 	}
 	info->player_info.move_count++;
 	info->player_info.y++;
-	printf("Move Count:%ld\n", info->player_info.move_count);
+	ft_printf("Move Count:%d\n", info->player_info.move_count);
 }
 
 void	move_left(t_info *info)
@@ -99,7 +99,7 @@ void	move_left(t_info *info)
 	}
 	info->player_info.move_count++;
 	info->player_info.x--;
-	printf("Move Count:%ld\n", info->player_info.move_count);
+	ft_printf("Move Count:%d\n", info->player_info.move_count);
 }
 
 void	move_right(t_info *info)
@@ -127,7 +127,7 @@ void	move_right(t_info *info)
 	}
 	info->player_info.move_count++;
 	info->player_info.x++;
-	printf("Move Count:%ld\n", info->player_info.move_count);
+	ft_printf("Move Count:%d\n", info->player_info.move_count);
 }
 
 int	handle_key(int keycode, t_info *info)

@@ -6,15 +6,16 @@
 /*   By: knomura <knomura@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/11 16:07:46 by knomura           #+#    #+#             */
-/*   Updated: 2025/10/17 16:29:41 by knomura          ###   ########.fr       */
+/*   Updated: 2025/10/18 17:55:32 by knomura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "GET_NEXT_LINE/get_next_line.h"
-# include "LIBFT/libft.h"
+# include "get_next_line/get_next_line.h"
+# include "libft/libft.h"
+# include "printf/ft_printf.h"
 # include "minilibx-linux/mlx.h"
 # include "minilibx-linux/mlx_int.h"
 # include <fcntl.h>
